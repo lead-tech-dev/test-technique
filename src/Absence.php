@@ -18,7 +18,7 @@ class Absence {
 
 
     public function getAbsencePeriod() {
-        $absencePeriod = DatePeriod($this->startAbsencePeriod, self::INTERVAL, $this->endAbsencePeriod);
+        $absencePeriod = new DatePeriod($this->startAbsencePeriod, self::INTERVAL, $this->endAbsencePeriod);
         return $absencePeriod;
     }
 }
