@@ -2,7 +2,9 @@
 
 namespace App;
 
+use DateInterval;
 use DatePeriod;
+use DateTime;
 
 class Absence {
     const INTERVAL = 'P1D';
@@ -18,7 +20,10 @@ class Absence {
 
 
     public function getAbsencePeriod() {
-        $absencePeriod = new DatePeriod($this->startAbsencePeriod, self::INTERVAL, $this->endAbsencePeriod);
-        return $absencePeriod;
+        return new DatePeriod(
+            new DateTime($this->startAbsencePeriod), 
+            new DateInterval(self::INTERVAL), 
+            new DateTime($this->endAbsencePeriod)
+        );;
     }
 }
