@@ -16,6 +16,7 @@ class MonthPeriod {
 
     public function isInclusDansPeriode(Absence $absence): bool
     {
+        var_dump(is_object($absence));
         foreach($absence->getAbsencePeriod() as $value) {
             if ($value >= $this->startMonthPeriod && $value < $this->endMonthPeriod) {
                 return true;
