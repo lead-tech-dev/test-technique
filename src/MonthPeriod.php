@@ -14,5 +14,15 @@ class MonthPeriod {
         $this->endMonthPeriod = new DateTime('first day of next month 00:00:00');
     }
 
+    public function isInclusDansPeriode(Absence $absence): bool
+    {
+        foreach($absence->getAbsencePeriod() as $value) {
+            if ($value >= $this->startMonthPeriod && $value < $this->endMonthPeriod) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     
 }
